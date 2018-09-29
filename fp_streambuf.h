@@ -16,6 +16,8 @@ public:
 
 	// member functions
 	virtual ~fp_streambuf();
+	fp_streambuf(FILE* fp);
+	fp_streambuf(const fp_streambuf& rhs);
 
 	// locales
 	std::locale pubimbue( const std::locale& loc );
@@ -76,10 +78,8 @@ protected:
 	virtual int_type pbackfail( int_type c = traits_type::eof() );
 
 	// protected member functions
-	fp_streambuf();
-	fp_streambuf(const std::streambuf& rhs);
-	std::streambuf& operator=( const std::streambuf& other );
-	void swap( std::streambuf& other );
+	fp_streambuf& operator=( const fp_streambuf& other );
+	void swap( fp_streambuf& other );
 private:
 };
 
